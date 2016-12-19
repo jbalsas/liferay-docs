@@ -1,4 +1,4 @@
-# Automatic Single Page Applications in @product@
+# Automatic Single Page Applications [](id=automatic-single-page-applications)
 
 A good user experience is the measure of a well-designed site. A user's time is
 highly valuable. The last thing you want is for someone to grow frustrated with
@@ -133,8 +133,7 @@ $$$
 The following configuration options are available:
 
 **Cache Expiration Time**:  The time, in minutes, in which the SPA cache is
-cleared. A zero value means the cache should never expire during SPA navigation.
-A negative value means the cache should be disabled.
+cleared. A negative value means the cache should be disabled.
 
 **Request Timeout Time**: The time, in milliseconds, in which a SPA request
 times out. A zero value means the request should never timeout.
@@ -166,7 +165,7 @@ To blacklist a portlet from SPA, follow these steps:
 
         _singlePageApplication = false;
 
-3. Alternatively, you can override the [`isSinglePageApplication` method](https://docs.liferay.com/ce/portal/7.0/javadocs/portal-impl/com/liferay/portal/model/impl/PortletImpl.html#isSinglePageApplication--)
+3. Alternatively, you can override the [`isSinglePageApplication` method](@platform-ref@/7.0/javadocs/portal-impl/com/liferay/portal/model/impl/PortletImpl.html#isSinglePageApplication--)
    of the portlet to return `false`.
 
 To disable SPA for a link follow these steps:

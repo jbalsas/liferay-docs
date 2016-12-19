@@ -1,4 +1,4 @@
-# Introduction to Front-End Development in @product@ [](id=introduction-to-frontend-development-in-liferay)
+# Introduction to Front-End Development [](id=introduction-to-frontend-development)
 
 When approaching the development of your application's front-end, @product@ 
 offers a wide range of approaches, frameworks, utilities, and mechanisms to make 
@@ -53,5 +53,5 @@ Below are some of the available front-end extensions:
 
 - [Theme Contributors](/develop/tutorials/-/knowledge_base/7-0/theme-contributors)
 - [Context Contributors](/develop/tutorials/-/knowledge_base/7-0/context-contributors)
-- [Portlet Decorators](/develop/tutorials/-/knowledge_base/7-0/application-decorators)
+- [Portlet Decorators](/develop/tutorials/-/knowledge_base/7-0/portlet-decorators)
 - [Editor Config Contributors](/develop/tutorials/-/knowledge_base/7-0/modifying-an-editors-configuration)
