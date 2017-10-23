@@ -42,7 +42,7 @@ $$$
 
 Now you'll actually perform these steps, and when you're done, you'll have a
 production-ready instance of @product@ up and running. After you're done
-following the installation guide, refer to the [Configuring Elasticsearch](/discover/portal/-/knowledge_base/7-0/configuring-elasticsearch-for-liferay-0)
+following the installation guide, refer to the [Configuring Elasticsearch](/discover/deployment/-/knowledge_base/7-0/configuring-elasticsearch-for-liferay-0)
 article for more details on configuring @product@ for Elasticsearch. For more
 information on installing a search engine, see
 [here](/discover/deployment/-/knowledge_base/7-0/installing-a-search-engine).
@@ -62,17 +62,17 @@ this:
       "name" : "Wiz Kid",
       "cluster_name" : "LiferayElasticsearchCluster",
       "version" : {
-        "number" : "2.2.0",
+        "number" : "2.4.0",
         "build_hash" : "8ff36d139e16f8720f2947ef62c8167a888992fe",
-        "build_timestamp" : "2016-01-27T13:32:39Z",
+        "build_timestamp" : "2016-08-27T13:32:39Z",
         "build_snapshot" : false,
-        "lucene_version" : "5.4.1"
+        "lucene_version" : "5.5.2"
       },
       "tagline" : "You Know, for Search"
     }
 
 The version of Elasticsearch that you want is the value of the `"number"` field.
-In this example, it's 2.2.0. 
+In this example, it's 2.4.0. 
 
 Now that you know the version of Elasticsearch you need, go to
 [Elastic's](https://www.elastic.co) website and download that version. 
@@ -165,7 +165,7 @@ and click on *Control Panel* &rarr; *Configuration* &rarr; *Server Administratio
 click the *Execute* button for *Reindex all search indexes*. When you do that,
 you should see some messages scroll up in the Elasticsearch log. 
 
-For more details refer to the [Elasticsearch installation guide](https://www.elastic.co/guide/en/elasticsearch/reference/2.2/_installation.html)
+For more details refer to the [Elasticsearch installation guide](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/_installation.html)
 
 You're almost done! The only thing left is to make sure Marketplace is working
 and optionally configure portal security. 

@@ -38,7 +38,6 @@ needed and has been removed. The tag now uses the following parameters to
 support the new features:
 
 - `currentLogoURL`: the URL to display the image being stored
-- `hasUpdateLogoPermission`: `true` if the current user can update the logo
 - `maxFileSize`: the size limit for the logo to be uploaded
 - `tempImageFileName`: the unique identifier to store the temporary image on
   upload
@@ -51,8 +50,7 @@ to update their usage of the tag.
 #### How should I update my code? [](id=how-should-i-update-my-code)
 
 You should remove the parameter `editLogoURL` and include (if neccessary) the
-parameters `currentLogoURL`, `hasUpdateLogoPermission`, `maxFileSize`, and/or
-`tempImageFileName`.
+parameters `currentLogoURL`, `maxFileSize`, and/or `tempImageFileName`.
 
 **Example**
 
@@ -77,7 +75,6 @@ New way:
     <liferay-ui:logo-selector
         currentLogoURL="<%= selUser.getPortraitURL(themeDisplay) %>"
         defaultLogoURL="<%= UserConstants.getPortraitURL(themeDisplay.getPathImage(), selUser.isMale(), 0) %>"
-        hasUpdateLogoPermission='<%= UsersAdminUtil.hasUpdateFieldPermission(selUser, "portrait") %>'
         imageId="<%= selUser.getPortraitId() %>"
         logoDisplaySelector=".user-logo"
         maxFileSize="<%= PrefsPropsUtil.getLong(PropsKeys.USERS_IMAGE_MAX_SIZE) / 1024 %>"
@@ -4322,3 +4319,44 @@ tag.
 This change was made as a part of the ongoing strategy to deprecate unused tags.
 
 ---------------------------------------
+
+### Build Auto Upgrade [](id=build-auto-upgrade)
+- **Date:** 2017-Aug-17
+- **JIRA Ticket:** LPS-73967
+
+#### What changed? [](id=what-changed-108)
+
+The `build.auto.upgrade` property in `service.properties` for Liferay Portal 6.x
+Service Builder portlets applies Liferay Service schema changes on rebuilding
+the services and redeploying the portlets.
+
+Since 7.0, the per portlet property `build.auto.upgrade` is deprecated.
+
+This change reintroduces Build Auto Upgrade in a new global property
+`schema.module.build.auto.upgrade` in the
+`[Liferay_Home]/portal-developer.properties` file.
+
+Setting global property `schema.module.build.auto.upgrade` to `true` applies
+module schema changes  for redeployed modules whose service build numbers have
+incremented. The `build.number` property in the module's `service.properties`
+file indicates the service build number.
+
+#### Who is affected? [](id=who-is-affected-108)
+
+This feature is available for developers to use in development only.
+
+**WARNING**: DO NOT USE the Build Auto Upgrade feature in production. Liferay
+DOES NOT support Build Auto Upgrade in production.
+
+#### How should I update my code? [](id=how-should-i-update-my-code-108)
+
+To use this feature in development, set  global property
+`schema.module.build.auto.upgrade` in
+`[Liferay_Home]/portal-developer.properties` to `true`, increment your module's
+`build.number` in the `service.properties` file, and deploy the module.
+
+#### Why was this change made? [](id=why-was-this-change-made-108)
+
+This change was made so that 7.0 developers could test database schema changes
+on the fly, without having to write upgrade processes.
+

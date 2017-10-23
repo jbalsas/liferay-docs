@@ -11,6 +11,7 @@
 git-modified-list.txt
 nbbuild.xml
 properties/
+.DS_Store
 
 /*.ipr
 /*.iws
@@ -29,3 +30,4 @@ dist/
 /develop/tutorials/code/osgi/modules/com.liferay.docs.greetingimpl/.nb-gradle/
 /develop/tutorials/code/osgi/modules/com.liferay.docs.greetingapi/.nb-gradle/
 /develop/tutorials/code/osgi/modules/com.liferay.docs.greetingcommand/.nb-gradle/
+**/temp/**
