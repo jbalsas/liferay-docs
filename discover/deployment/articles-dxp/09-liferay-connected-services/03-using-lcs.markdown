@@ -547,9 +547,9 @@ Next, you'll learn how to use elastic subscriptions with LCS.
 ### Elastic Subscriptions [](id=elastic-subscriptions)
 
 Elastic subscriptions let you register an unlimited number of @product@ servers. 
-This is invaluable in auto-scaling environments, where servers are automatically 
-created and destroyed in response to server load. You can view data on your 
-elastic servers from the *Subscriptions* tab's *Elastic Subscriptions* tab. 
+This is crucial for auto-scaling environments in which servers are created and 
+destroyed automatically. You can view data on your elastic servers from the 
+*Subscriptions* tab's *Elastic Subscriptions* tab. 
 
 +$$$
 
@@ -595,7 +595,13 @@ There are a few things to keep in mind when using environment tokens:
 
 - Be careful when regenerating a token file from LCS. When this is done, 
   @product@ instances using the old file are disconnected from LCS and can't 
-  reconnect until restarting with the new file. 
+  reconnect until they receive the new file. If the @product@ instance 
+  disconnects due to token regeneration and is running version 4.0.2 or later 
+  of the LCS client app, the instance enters a 7-day grace period during which 
+  it functions normally. This gives the administrator time to use the new token 
+  file to reconnect to LCS. @product@ instances running earlier versions of 
+  the LCS client app present users with an error page until the administrator 
+  reconnects with the new token. 
 
 - Minimal information (server name, location, etc...) is used to activate a 
   @product@ instance with LCS. You can change this information from 
@@ -648,7 +654,7 @@ tab. This tab contains the following sections:
   Enter them into the box that appears when you select *Show Blacklisted 
   Properties*. 
 
-![Figure 21: An environment's Registration tab lets you select the LCS services to use with your @product@ servers that connect to that environment.](../../images-dxp/lcs-environment-token.png)
+![Figure 19: An environment's Registration tab lets you select the LCS services to use with your @product@ servers that connect to that environment.](../../images-dxp/lcs-environment-token.png)
 
 Whether you must generate or regenerate a token depends on the actions you took 
 in the Services section, and whether there's an existing token in the 
@@ -681,14 +687,8 @@ To download an environment's token, click the *Download Token* button. Once you
 download the token, follow these steps to use it to connect and activate a 
 @product@ instance with LCS: 
 
-1. Ensure that you've deployed the LCS client app, and have configured it 
-   properly if you connect from behind a proxy. For instructions on configuring 
-   the client app to connect through a proxy, 
-   [click here](/discover/deployment/-/knowledge_base/7-0/preconfiguring-the-lcs-client-to-connect-through-a-proxy). 
-   You can download the LCS client app 
-   [here in the Liferay Marketplace](https://web.liferay.com/marketplace/-/mp/application/71774947). 
-   For instructions on using Marketplace to download and deploy apps, 
-   [click here](/discover/portal/-/knowledge_base/7-0/using-the-liferay-marketplace). 
+1. Ensure that you've addressed 
+   [the LCS preconfiguration steps](/discover/deployment/-/knowledge_base/7-0/lcs-preconfiguration). 
 
 2. Shut down your @product@ instance if it's running. 
 
