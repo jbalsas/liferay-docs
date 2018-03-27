@@ -1,4 +1,4 @@
-# TOP JS Dynamic Include
+# Top JS Dynamic Include [](id=top-js-dynamic-include)
 
 The `top_js.jspf` dynamic include lets you add additional JavaScript files to 
 the theme's head. For example, you can use this extension point to include a JS  
@@ -44,7 +44,7 @@ example).
     
 Now you know how to use the `top_js.jspf` dynamic include.
 
-## Related Topics
+## Related Topics [](id=related-topics)
 
 [Bottom JSP Dynamic Includes](develop/tutorials/-/knowledge_base/7-1/bottom-jsp-dynamic-includes)
 

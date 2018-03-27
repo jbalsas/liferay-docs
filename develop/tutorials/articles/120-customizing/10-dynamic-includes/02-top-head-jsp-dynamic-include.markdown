@@ -1,4 +1,4 @@
-# Top Head JSP Dynamic Includes
+# Top Head JSP Dynamic Includes [](id=top-head-jsp-dynamic-includes)
 
 The `top_head.jsp` dynamic includes let you load additional links in the theme's 
 head. The following keys are available:
@@ -44,10 +44,10 @@ The example below injects a link into the top of the `top_head.jsp`:
 
 Now you know how to use the `top_head.jsp` dynamic includes.
 
-## Related Topics
+## Related Topics [](id=related-topics)
 
 [Bottom JSP Dynamic Includes](develop/tutorials/-/knowledge_base/7-1/bottom-jsp-dynamic-includes)
 
-[Top JS Dynamic Includes](develop/tutorials/-/knowledge_base/7-1/top-js-dynamic-includes)
+[Top JS Dynamic Include](develop/tutorials/-/knowledge_base/7-1/top-js-dynamic-include)
 
 [WYSIWYG Editor Dynamic Includes](develop/tutorials/-/knowledge_base/7-1/wysiwyg-editor-dynamic-includes)
