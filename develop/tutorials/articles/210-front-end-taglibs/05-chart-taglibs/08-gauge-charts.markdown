@@ -3,40 +3,49 @@
 Gauge charts are percentage-based. A gauge chart shows where percentage-based 
 data falls over a given range. Each data set must be defined as a new instance 
 of the 
-[`SingleValueColumn` object](@app-ref@/foundation/latest/javadocs/com/liferay/frontend/taglib/chart/model/SingleValueColumn.html).
+[`SingleValueColumn` object](@app-ref@/foundation/latest/javadocs/com/liferay/frontend/taglib/chart/model/SingleValueColumn.html). 
+This tutorial shows how to configure your portlet to use gauge charts. 
 
-Java sample data:
+Follow these steps:
 
-    import com.liferay.frontend.taglib.chart.model.SingleValueColumn;
-    import com.liferay.frontend.taglib.chart.model.gauge.GaugeChartConfig;
+1.  [Create an MVC portlet project](/develop/reference/-/knowledge_base/7-1/using-the-mvc-portlet-template).
 
-    public class ChartSampleDisplayContext {
+2.  Add the following dependency to your bundle's `build.gradle` file:
 
-        public ChartSampleDisplayContext() {
-          _initGaugeChartConfig();
-        }
+        compileOnly group: "com.liferay",
+        name: "com.liferay.frontend.taglib.chart",
+        version: "1.0.9"
 
-        public gaugeChartConfig getGaugeChartConfig() {
-          return _gaugeChartConfig;
-        }
+3.  Import the chart taglib along with the `GaugeChartConfig` and 
+    `SingleValueColumn` classes into your bundle's `init.jsp` file:
 
-        private void _initGaugeChartConfig() {
-        	_gaugeChartConfig.addColumn(new SingleValueColumn("data1", 85.4));
-        }
-        
-        private GaugeChartConfig _gaugeChartConfig = new GaugeChartConfig();
+        <%@ taglib prefix="chart" uri="http://liferay.com/tld/chart" %>
+        <%@ page import="com.liferay.frontend.taglib.chart.model.gauge.GaugeChartConfig" %>
+        <%@ page import="com.liferay.frontend.taglib.chart.model.SingleValueColumn" %>
 
-    }
+4.  Add the following Java scriptlet to the top of your `view.jsp`:
 
-JSP:
+        <%
+        GaugeChartConfig _gaugeChartConfig = new GaugeChartConfig();
 
-    <chart:gauge config="<%= chartSampleDisplayContext.getGaugeChartConfig() %>" id="gauge" />
+        _gaugeChartConfig.addColumn(
+          new SingleValueColumn("data1", 85.4)
+        );
+
+        %>
+
+5.  Add the `<chart>` taglib to the `view.jsp`, passing the `_gaugeChartConfig` 
+    as the `config` attribute's value:
+
+        <chart:gauge
+          config="<%= _gaugeChartConfig %>"
+        />
     
 ![Figure 1: A gauge chart shows where percentage-based data falls over a given range.](../../../images/chart-taglib-gauge.png)
 
 ## Related Topics [](id=related-topics)
 
-[Donut Charts](/develop/tutorials/-/knowledge_base/7-1/donut-charts)
+[Gauge Charts](/develop/tutorials/-/knowledge_base/7-1/gauge-charts)
 
 [Geomap Charts](/develop/tutorials/-/knowledge_base/7-1/geomap-charts)
 

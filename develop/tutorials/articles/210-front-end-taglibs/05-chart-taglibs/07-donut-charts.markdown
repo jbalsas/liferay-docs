@@ -3,42 +3,50 @@
 Donut charts are percentage-based. A donut chart is similar to a pie chart, but 
 it has a hole in the center. Each data set must be defined as a new instance of 
 the 
-[`SingleValueColumn` object](@app-ref@/foundation/latest/javadocs/com/liferay/frontend/taglib/chart/model/SingleValueColumn.html).
+[`SingleValueColumn` object](@app-ref@/foundation/latest/javadocs/com/liferay/frontend/taglib/chart/model/SingleValueColumn.html). 
+This tutorial shows how to configure your portlet to use donut charts. 
 
-Java sample data:
+Follow these steps:
 
-    import com.liferay.frontend.taglib.chart.model.SingleValueColumn;
-    import com.liferay.frontend.taglib.chart.model.percentage.donut.DonutChartConfig;
+1.  [Create an MVC portlet project](/develop/reference/-/knowledge_base/7-1/using-the-mvc-portlet-template).
 
-    public class ChartSampleDisplayContext {
+2.  Add the following dependency to your bundle's `build.gradle` file:
 
-        public ChartSampleDisplayContext() {
-          _initDonutChartConfig();
-        }
+        compileOnly group: "com.liferay",
+        name: "com.liferay.frontend.taglib.chart",
+        version: "1.0.9"
 
-        public donutChartConfig getDonutChartConfig() {
-          return _donutChartConfig;
-        }
+3.  Import the chart taglib along with the `DonutChartConfig` and 
+    `SingleValueColumn` classes into your bundle's `init.jsp` file:
 
-        private void _initDonutChartConfig() {
-          _donutChartConfig.addColumns(
-            new SingleValueColumn("data1", 30),
-            new SingleValueColumn("data2", 70));
-        }
-        
-        private DonutChartConfig _donutChartConfig = new DonutChartConfig();
+        <%@ taglib prefix="chart" uri="http://liferay.com/tld/chart" %>
+        <%@ page import="com.liferay.frontend.taglib.chart.model.percentage.donut.DonutChartConfig" %>
+        <%@ page import="com.liferay.frontend.taglib.chart.model.SingleValueColumn" %>
 
-    }
+4.  Add the following Java scriptlet to the top of your `view.jsp`:
 
-JSP:
+        <%
+        DonutChartConfig _donutChartConfig = new DonutChartConfig();
 
-    <chart:donut config="<%= chartSampleDisplayContext.getDonutChartConfig() %>" id="donut" />
+        _donutChartConfig.addColumns(
+          new SingleValueColumn("data1", 30),
+          new SingleValueColumn("data2", 70)
+        );
+
+        %>
+
+5.  Add the `<chart>` taglib to the `view.jsp`, passing the `_donutChartConfig` 
+    as the `config` attribute's value:
+
+        <chart:donut
+          config="<%= _donutChartConfig %>"
+        />
     
 ![Figure 1: A donut chart is similar to a pie chart, but it has a hole in the center.](../../../images/chart-taglib-donut.png)
 
 ## Related Topics [](id=related-topics)
 
-[Bar Charts](/develop/tutorials/-/knowledge_base/7-1/bar-charts)
+[Donut Charts](/develop/tutorials/-/knowledge_base/7-1/donut-charts)
 
 [Gauge Charts](/develop/tutorials/-/knowledge_base/7-1/line-charts)
 
